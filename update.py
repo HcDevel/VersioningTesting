@@ -39,7 +39,8 @@ class update: #This class searches for updates. It only connects to GitHub, so y
             
         for release in releases[:]:
             if (compare < int (release['tag_name'].replace('.', ''))): #If remote version is newer
-                print ("neu" + release['tag_name'])
+                if (release['prerelease'] == False or (self.pre_releases == True and release['prerelease'] == True)): #Check if release is stable
+                    print ("found: " + release['tag_name'])
         
 test = update ()
 test.search()
