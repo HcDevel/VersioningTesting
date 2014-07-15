@@ -43,4 +43,5 @@ class update: #This class searches for updates. It only connects to GitHub, so y
                     print ("found: " + release['tag_name'])
         
 test = update ()
+test.show_pre_releases()
 test.search()
